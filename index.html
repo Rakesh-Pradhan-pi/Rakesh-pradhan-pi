@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Name — Research Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --blue-dark:#da30ad0b;
+  --blue-mid:#15355e;
+  --blue:#2563eb;
+  --blue-soft:#3b83f6ba;
+  --blue-pale:#dbfeeabb;
+  --blue-ghost:#7c6ef533;
+  --sky:#f0f7ff;
+  --white:#49d32782;
+  --ink:#0f1f3d;
+  --body:#334155;
+  --muted:#64748b;
+  --light:#94a3b8c9;
+  --border:#ba10a95f;
+  --border2:#cbd5e8;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --radius:12px;
+  --max:1080px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--sky);color:var(--body);font-size:16px;line-height:1.75;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--sky);}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:99px;}
+a{text-decoration:none;}
+
+/* ════ NAV ════ */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(240,247,255,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:0 2.5rem;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--blue);}
+.nav-name{font-size:1rem;font-weight:800;color:var(--blue-dark);letter-spacing:-0.02em;}
+.nav-links{display:flex;gap:0.25rem;list-style:none;}
+.nav-links a{
+  font-size:0.8rem;font-weight:600;padding:6px 14px;border-radius:99px;
+  color:var(--muted);letter-spacing:0.02em;transition:all 0.2s;
+}
+.nav-links a:hover{color:var(--blue);background:var(--blue-pale);}
+.nav-links a.active{color:var(--blue);background:var(--blue-pale);}
+.nav-cv{
+  font-size:0.8rem;font-weight:700;padding:8px 20px;border-radius:99px;
+  background:var(--blue);color:white;border:none;cursor:pointer;transition:background 0.2s;
+}
+.nav-cv:hover{background:var(--blue-mid);}
+
+/* ════ SECTION BASE ════ */
+section{padding:5rem 0;}
+.inner{max-width:var(--max);margin:0 auto;padding:0 2.5rem;}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.72rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:0.6rem;
+}
+.sec-eyebrow::before{content:'';width:22px;height:2px;background:var(--blue);border-radius:99px;}
+.sec-title{font-size:2rem;font-weight:900;color:var(--ink);letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.4rem;}
+.sec-sub{font-size:0.95rem;color:var(--muted);max-width:520px;}
+.sec-header{margin-bottom:2.8rem;}
+.divider{max-width:var(--max);margin:0 auto;height:1px;background:var(--border);padding:0 2.5rem;}
+
+/* ════ HOME ════ */
+#home{background:var(--white);padding:0;}
+.home-grid{
+  max-width:var(--max);margin:0 auto;padding:0 2.5rem;
+  display:grid;grid-template-columns:1fr 340px;min-height:92vh;align-items:center;gap:4rem;
+}
+.home-left{padding:4rem 0;}
+.home-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue-ghost);border:1px solid var(--blue-pale);
+  color:var(--blue);font-size:0.75rem;font-weight:700;
+  letter-spacing:0.06em;padding:5px 14px;border-radius:99px;margin-bottom:1.5rem;
+}
+.home-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.home-name{
+  font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:900;
+  color:var(--ink);letter-spacing:-0.04em;line-height:1.05;margin-bottom:0.3rem;
+}
+.home-name span{color:var(--blue);}
+.home-pos{font-size:1rem;color:var(--muted);font-weight:400;margin-bottom:0.2rem;}
+.home-uni{font-size:1rem;color:var(--muted);font-weight:400;margin-bottom:1.5rem;}
+.home-about{
+  font-size:0.95rem;color:var(--body);line-height:1.9;
+  border-left:3px solid var(--blue-pale);padding-left:1.2rem;
+  margin-bottom:1.8rem;max-width:520px;
+}
+.home-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;}
+.htag{
+  font-size:0.78rem;font-weight:600;padding:5px 14px;
+  background:var(--blue-ghost);color:var(--blue);
+  border:1px solid var(--blue-pale);border-radius:99px;
+}
+.home-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.88rem;font-weight:700;padding:11px 26px;
+  border-radius:99px;transition:all 0.22s;
+}
+.btn-solid{background:var(--blue);color:white;border:2px solid var(--blue);}
+.btn-solid:hover{background:var(--blue-mid);border-color:var(--blue-mid);}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--border2);}
+.btn-ghost:hover{background:var(--blue-ghost);border-color:var(--blue-pale);}
+
+/* photo panel */
+.home-right{
+  display:flex;flex-direction:column;align-items:center;
+  gap:1.5rem;padding:4rem 0;
+}
+.photo-wrap{position:relative;width:260px;height:260px;}
+.photo-ring{
+  position:absolute;inset:-10px;border-radius:50%;
+  border:2px dashed var(--blue-pale);animation:spin 20s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.photo-ring-dot{
+  position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+  width:10px;height:10px;border-radius:50%;background:var(--blue);
+}
+.photo-img,.photo-placeholder{
+  width:260px;height:260px;border-radius:50%;object-fit:cover;
+  border:5px solid var(--white);
+  box-shadow:0 0 0 3px var(--blue-pale),0 16px 48px rgba(37,99,235,0.15);
+}
+.photo-placeholder{
+  background:linear-gradient(135deg,var(--blue-mid),var(--blue-soft));
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;font-weight:900;color:white;letter-spacing:-0.04em;
+}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;
+}
+.qs{
+  background:var(--sky);border:1px solid var(--border);
+  border-radius:var(--radius);padding:12px;text-align:center;
+}
+.qs-num{font-size:1.4rem;font-weight:900;color:var(--ink);}
+.qs-label{font-size:0.7rem;font-weight:600;color:var(--light);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* info row */
+.info-row{
+  background:var(--blue-dark);padding:1.4rem 0;
+}
+.info-row-inner{
+  max-width:var(--max);margin:0 auto;padding:0 2.5rem;
+  display:flex;gap:2.5rem;flex-wrap:wrap;align-items:center;
+}
+.ir-item{display:flex;align-items:center;gap:10px;}
+.ir-icon{font-size:1.1rem;}
+.ir-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue-soft);}
+.ir-val{font-size:0.85rem;color:#cbd5e1;font-weight:400;}
+
+/* ════ RESEARCH ════ */
+#research{background:var(--sky);}
+.research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
+.rc{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.75rem;
+  transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;
+  position:relative;overflow:hidden;
+}
+.rc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(37,99,235,0.1);border-color:var(--blue-pale);}
+.rc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;}
+.rc-icon-wrap{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--blue-ghost);display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.rc-status{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:3px 11px;border-radius:99px;}
+.s-on{background:#dcfce7;color:#15803d;}
+.s-done{background:#dbeafe;color:#1d4ed8;}
+.s-up{background:#fef9c3;color:#a16207;}
+.rc h3{font-size:1.02rem;font-weight:800;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.rc p{font-size:0.875rem;color:var(--muted);line-height:1.75;}
+.rc-footer{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;flex-wrap:wrap;}
+.rc-tag{font-size:0.72rem;font-weight:600;color:var(--blue);background:var(--blue-ghost);padding:2px 10px;border-radius:99px;}
+
+/* ════ EDUCATION ════ */
+#education{background:var(--white);}
+.edu-wrap{display:flex;flex-direction:column;gap:0;}
+.edu-item{
+  display:grid;grid-template-columns:140px 1fr;gap:2rem;
+  padding:2.5rem 0;border-bottom:1px solid var(--border);
+  position:relative;
+}
+.edu-item:last-child{border-bottom:none;}
+.edu-item::before{
+  content:'';position:absolute;
+  left:138px;top:0;bottom:0;width:1px;
+  background:var(--border);
+}
+.edu-year-col{text-align:right;padding-top:4px;}
+.edu-year{font-size:0.78rem;font-weight:800;color:var(--blue);letter-spacing:0.06em;background:var(--blue-ghost);padding:3px 10px;border-radius:99px;display:inline-block;margin-bottom:6px;}
+.edu-dot-wrap{display:flex;justify-content:flex-end;align-items:center;gap:8px;}
+.edu-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);border:3px solid var(--white);box-shadow:0 0 0 2px var(--blue-pale);}
+.edu-right{}
+.edu-degree{font-size:1.1rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:0.25rem;}
+.edu-uni{font-size:0.88rem;font-weight:600;color:var(--blue);margin-bottom:0.6rem;}
+.edu-desc{font-size:0.875rem;color:var(--muted);line-height:1.8;}
+.edu-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.75rem;}
+.edu-tag{font-size:0.72rem;font-weight:600;color:var(--muted);background:var(--sky);border:1px solid var(--border);padding:2px 10px;border-radius:99px;}
+
+/* ════ AWARDS ════ */
+#awards{background:var(--sky);}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.aw{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+  display:flex;flex-direction:column;
+}
+.aw:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,0.08);}
+.aw-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;}
+.aw-icon{font-size:2rem;}
+.aw-year{font-size:0.72rem;font-weight:800;background:var(--blue-dark);color:white;padding:3px 10px;border-radius:99px;}
+.aw-title{font-size:0.95rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.01em;}
+.aw-org{font-size:0.8rem;color:var(--muted);}
+.aw-desc{font-size:0.8rem;color:var(--light);margin-top:auto;padding-top:0.75rem;}
+
+/* ════ PUBLICATIONS ════ */
+#publications{background:var(--white);}
+.pub-list{display:flex;flex-direction:column;gap:1.2rem;}
+.pub{
+  background:var(--sky);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.6rem 1.8rem;
+  display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;
+  transition:box-shadow 0.2s,border-color 0.2s;
+}
+.pub:hover{box-shadow:0 6px 20px rgba(37,99,235,0.08);border-color:var(--blue-pale);}
+.pub-meta{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-bottom:0.6rem;}
+.pub-year{font-size:0.72rem;font-weight:800;background:var(--blue);color:white;padding:2px 10px;border-radius:99px;}
+.pub-type{font-size:0.72rem;font-weight:700;background:var(--blue-ghost);color:var(--blue);padding:2px 10px;border-radius:99px;}
+.pub-venue{font-size:0.78rem;color:var(--muted);font-style:italic;}
+.pub-title{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-0.01em;margin-bottom:0.4rem;line-height:1.4;}
+.pub-authors{font-size:0.83rem;color:var(--muted);}
+.pub-authors strong{color:var(--blue-mid);font-weight:700;}
+.pub-links{display:flex;flex-direction:column;gap:6px;align-items:flex-end;}
+.pub-link{
+  font-size:0.75rem;font-weight:700;color:var(--blue);
+  padding:4px 14px;border:1.5px solid var(--blue-pale);
+  border-radius:99px;white-space:nowrap;
+  transition:all 0.18s;background:var(--white);
+}
+.pub-link:hover{background:var(--blue);color:white;border-color:var(--blue);}
+
+/* ════ CONTACT ════ */
+#contact{background:var(--blue-dark);padding:5rem 0;}
+.contact-inner{max-width:var(--max);margin:0 auto;padding:0 2.5rem;}
+.contact-top{text-align:center;margin-bottom:3.5rem;}
+.contact-top .sec-eyebrow{justify-content:center;}
+.contact-top .sec-title{color:white;}
+.contact-top .sec-sub{color:#94a3b8;margin:0 auto;}
+.contact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+.cc{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);padding:1.5rem 1rem;text-align:center;
+  transition:all 0.2s;
+}
+.cc:hover{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);transform:translateY(-3px);}
+.cc-icon{font-size:1.8rem;margin-bottom:0.6rem;}
+.cc-label{font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:0.3rem;}
+.cc-val{font-size:0.8rem;color:#94a3b8;word-break:break-all;}
+.contact-form{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);padding:2.5rem;margin-top:2.5rem;
+}
+.form-title{font-size:1rem;font-weight:800;color:white;margin-bottom:1.5rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-field{display:flex;flex-direction:column;gap:5px;}
+.form-field label{font-size:0.75rem;font-weight:700;color:#64748b;letter-spacing:0.06em;text-transform:uppercase;}
+.form-field input,.form-field textarea{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;padding:10px 14px;font-size:0.9rem;
+  color:white;font-family:var(--sans);resize:vertical;
+  transition:border-color 0.2s;outline:none;
+}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#475569;}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--blue-soft);}
+.form-full{grid-column:1/-1;}
+.form-btn{
+  background:var(--blue);color:white;border:none;
+  font-family:var(--sans);font-size:0.9rem;font-weight:700;
+  padding:12px 32px;border-radius:99px;cursor:pointer;
+  transition:background 0.2s;margin-top:0.5rem;
+}
+.form-btn:hover{background:#1d4ed8;}
+
+/* ════ FOOTER ════ */
+footer{background:#07111c;text-align:center;padding:1.5rem;font-size:0.78rem;color:#334155;}
+footer span{color:var(--blue-soft);}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:860px){
+  .home-grid{grid-template-columns:1fr;min-height:auto;padding-top:2rem;}
+  .home-right{padding-top:0;}
+  .photo-wrap,.photo-img,.photo-placeholder{width:180px;height:180px;}
+  .research-grid{grid-template-columns:1fr;}
+  .awards-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:repeat(3,1fr);}
+  .edu-item{grid-template-columns:100px 1fr;gap:1.2rem;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .home-name{font-size:2.2rem;}
+  .awards-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr 1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .pub{grid-template-columns:1fr;}
+  .pub-links{flex-direction:row;align-items:flex-start;}
+  .edu-item{grid-template-columns:1fr;gap:0.5rem;}
+  .edu-item::before{display:none;}
+  .edu-year-col{text-align:left;}
+}
+
+/* ════ ANIMATIONS ════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.home-badge{animation:fadeUp 0.45s ease both;}
+.home-name{animation:fadeUp 0.45s 0.08s ease both;}
+.home-pos,.home-uni{animation:fadeUp 0.45s 0.14s ease both;}
+.home-about{animation:fadeUp 0.45s 0.2s ease both;}
+.home-tags{animation:fadeUp 0.45s 0.26s ease both;}
+.home-btns{animation:fadeUp 0.45s 0.32s ease both;}
+.home-right{animation:fadeUp 0.5s 0.2s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-dot"></div>
+      <!-- ✏️ EDIT: Your name -->
+      <!-- <span class="nav-name">Your Name</span> -->
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- ✏️ EDIT: Link to your CV file -->
+    <a href="cv.pdf" class="nav-cv">Download CV</a>
+  </div>
+</nav>
+
+<!-- ════ HOME ════ -->
+ <div class="home-right">
+      <!-- ✏️ EDIT: To use your real photo:
+           1. Save photo as "photo.jpg" in the same folder
+           2. Delete the div.photo-placeholder below
+           3. Uncomment the img tag -->
+      <div class="photo-wrap">
+        <div class="photo-ring"><div class="photo-ring-dot"></div></div>
+        <!-- <div class="photo-placeholder">YN</div> -->
+        <img class="photo-img" src="photo.jpg" alt="Your Name">
+      </div>
+<section id="home">
+  <div class="home-grid">
+    <!-- <div class="home-left">
+      <div class="home-badge"> -->
+        <!-- <span class="home-badge-dot"></span> -->
+        <!-- ✏️ EDIT: Your current status -->
+        <!-- Open to Research Collaborations -->
+      <!-- </div> -->
+      <!-- ✏️ EDIT: Your full name -->
+      <h1 class="home-name"><br><span>Rakesh Pradhan</span></h1>
+      <!-- ✏️ EDIT: Your position and department -->
+      <!-- <p class="home-pos">PhD Scholar,  Department of Mathematics & Computing,</p> -->
+      <!-- ✏️ EDIT: Your university -->
+      <!-- <p class="home-uni">Indian Institute of Technology (ISM), Dhanbad, India</p> -->
+      <!-- ✏️ EDIT: Write 3–4 lines about yourself -->
+      <p class="home-about">
+        Hi! I am Rakesh Pradhan, doing PhD at the Department of Mathematics and Computing, IIT(ISM), Dhanbad. Before joining as a PhD scholar i was an Assistant Professor at the School of Mathematical Science, Gangadhar Meher University, Odisha. I have completed my M.Sc from NIT Rourkela, and B.Sc from Utkal University.
+      </p>
+      <!-- ✏️ EDIT: Your research interest tags -->
+      <div class="home-tags">
+        <span class="htag">AI/ML for Computer Systems</span>
+        <span class="htag">Distributed Computing</span>
+        <span class="htag">Intelligent Network</span>
+        <span class="htag">Resource Allocation</span>
+        <!-- <span class="htag">Your Interest</span> -->
+      </div>
+      <div class="home-btns">
+        <a class="btn btn-solid" href="cv.pdf">📄 Download CV</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    
+
+      <!-- ✏️ EDIT: Your key numbers -->
+      <!-- <div class="quick-stats">
+        <div class="qs"><div class="qs-num">12+</div><div class="qs-label">Papers</div></div>
+        <div class="qs"><div class="qs-num">05</div><div class="qs-label">Awards</div></div>
+        <div class="qs"><div class="qs-num">08</div><div class="qs-label">Projects</div></div>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Info row -->
+  <div class="info-row">
+    <div class="info-row-inner">
+      <!-- ✏️ EDIT: Fill your details -->
+      <div class="ir-item">
+        <span class="ir-icon">📍</span>
+        <div><div class="ir-label">IIT (ISM)</div><div class="ir-val">Dhanbad, India</div></div>
+      </div>
+      <div class="ir-item">
+        <span class="ir-icon">🎓</span>
+        <div><div class="ir-label">Degree</div><div class="ir-val">PhD in Datascience (Ongoing)</div></div>
+      </div>
+      <div class="ir-item">
+        <span class="ir-icon">🏛️</span>
+        <div><div class="ir-label">Institution</div><div class="ir-val">[IIT, Dhanbad]</div></div>
+      </div>
+      <div class="ir-item">
+        <span class="ir-icon">🔬</span>
+        <div><div class="ir-label">Research Area</div><div class="ir-val">AI/ML</div></div>
+      </div>
+      <div class="ir-item">
+        <span class="ir-icon">✉️</span>
+        <div><div class="ir-label">Email</div><div class="ir-val">pradhanrakesh985@gmail.com</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RESEARCH ════ -->
+<section id="research">
+  <div class="inner">
+    <div class="sec-header">
+      <div class="sec-eyebrow">My Work</div>
+      <h2 class="sec-title">Research Areas</h2>
+      <p class="sec-sub">AI/ML for Distributing Computing Systems.</p> Adaptive Resource Allocation
+    </div>
+    <div class="research-grid">
+
+      <!-- ✏️ EDIT: Project 1 -->
+      <!-- <div class="rc">
+        <div class="rc-top">
+          <div class="rc-icon-wrap">🔬</div>
+          <span class="rc-status s-on">● Ongoing</span>
+        </div>
+        <h3>Research Project Title One</h3>
+        <p>Describe this project here — what is the problem you are solving, what methodology you are using, and what you expect to achieve from this research.</p>
+        <div class="rc-footer">
+          <span class="rc-tag">Machine Learning</span>
+          <span class="rc-tag">Deep Learning</span>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Project 2 -->
+      <!-- <div class="rc">
+        <div class="rc-top">
+          <div class="rc-icon-wrap">📊</div>
+          <span class="rc-status s-done">✓ Completed</span>
+        </div>
+        <h3>Research Project Title Two</h3>
+        <p>Describe your second project — the dataset used, the algorithm applied, and the results achieved. Mention any publications that came out of this work.</p>
+        <div class="rc-footer">
+          <span class="rc-tag">Data Science</span>
+          <span class="rc-tag">NLP</span>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Project 3 -->
+      <!-- <div class="rc">
+        <div class="rc-top">
+          <div class="rc-icon-wrap">🧠</div>
+          <span class="rc-status s-on">● Ongoing</span>
+        </div>
+        <h3>Research Project Title Three</h3>
+        <p>Add a third project or collaboration here. Mention the research group, funding, or collaborating institutions involved in this work if applicable.</p>
+        <div class="rc-footer">
+          <span class="rc-tag">Computer Vision</span>
+          <span class="rc-tag">AI</span>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Project 4 -->
+      <!-- <div class="rc">
+        <div class="rc-top">
+          <div class="rc-icon-wrap">🌐</div>
+          <span class="rc-status s-up">◌ Upcoming</span>
+        </div>
+        <h3>Research Project Title Four</h3>
+        <p>Describe a planned or upcoming research project here. Change the status badge to Ongoing or Completed once the project progresses.</p>
+        <div class="rc-footer">
+          <span class="rc-tag">Your Tag</span>
+          <span class="rc-tag">Your Tag</span>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+</section>
+
+<!-- ════ EDUCATION ════ -->
+<section id="education">
+  <div class="inner">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Academic Background</div>
+      <h2 class="sec-title">Education</h2>
+      <!-- <p class="sec-sub">My academic journey from undergraduate to doctoral research.</p> -->
+    </div>
+    <div class="edu-wrap">
+
+      <!-- ✏️ EDIT: Most recent degree first -->
+      <div class="edu-item">
+        <div class="edu-year-col">
+          <span class="edu-year">2025 – Present</span>
+          <div class="edu-dot-wrap"><div class="edu-dot"></div></div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-degree">Doctor of Philosophy (PhD)</div>
+          <div class="edu-uni">IIT (ISM), Dhanbad.</div>
+          <p class="edu-desc">
+            Department of Mathematics & Computing. 
+            <!-- Thesis: <em>"Your Thesis Title Here"</em>. -->
+            Supervised by Prof. Alakesh Kalita.
+            IndiaAI PhD Fellowship.
+          </p>
+          <div class="edu-tags">
+            <span class="edu-tag">Reinforcement Learning</span>
+            <span class="edu-tag">Edge Computing</span>
+            <span class="edu-tag">Cloud Computing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✏️ EDIT: Master's degree -->
+      <div class="edu-item">
+        <div class="edu-year-col">
+          <span class="edu-year">2020 – 2022</span>
+          <div class="edu-dot-wrap"><div class="edu-dot"></div></div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-degree">Master of Science</div>
+          <div class="edu-uni">NIT Rourkela, Odisha, India.</div>
+          <p class="edu-desc">
+            Mathematics. Dissertation on <em>"Frequently Hypercyclic Operator"</em>.
+          </p>
+          <!-- <div class="edu-tags">
+            <span class="edu-tag">Your Subject</span>
+            <span class="edu-tag">Your Subject</span>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- ✏️ EDIT: Bachelor's degree -->
+      <div class="edu-item">
+        <div class="edu-year-col">
+          <span class="edu-year">2016 – 2019</span>
+          <div class="edu-dot-wrap"><div class="edu-dot"></div></div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-degree">Bachelor of Science</div>
+          <div class="edu-uni">Government Autonomous College, Angul, Odisha, India. </div> Utkal University.
+          <p class="edu-desc">
+           Mathematics.
+          </p>
+          <!-- <div class="edu-tags">
+            <span class="edu-tag">Your Subject</span>
+            <span class="edu-tag">Your Subject</span>
+          </div>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ AWARDS ════ -->
+<section id="awards">
+  <div class="inner">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Honours &amp; Recognition</div>
+      <h2 class="sec-title">Awards &amp; Achievements</h2>
+      <p class="sec-sub">Recognition received for research contributions and academic excellence.</p>
+    </div>
+    <div class="awards-grid">
+
+      <!-- ✏️ EDIT: Award 1 -->
+      <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">🏆</div>
+          <!-- <span class="aw-year">2024</span>
+        </div>
+        <div class="aw-title">Best Paper Award</div>
+        <div class="aw-org">Conference / Journal Name</div>
+        <div class="aw-desc">Short description of the award and what it was given for.</div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Award 2 -->
+      <!-- <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">🎓</div>
+          <span class="aw-year">2023</span>
+        </div>
+        <div class="aw-title">Research Fellowship</div>
+        <div class="aw-org">Funding Body / University Name</div>
+        <div class="aw-desc">Brief description of the fellowship and selection criteria.</div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Award 3 -->
+      <!-- <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">🥇</div>
+          <span class="aw-year">2022</span>
+        </div>
+        <div class="aw-title">Gold Medal</div>
+        <div class="aw-org">University Name</div>
+        <div class="aw-desc">Awarded for academic excellence and top rank in the department.</div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Award 4 -->
+      <!-- <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">🌟</div>
+          <span class="aw-year">2021</span>
+        </div>
+        <div class="aw-title">Merit Scholarship</div>
+        <div class="aw-org">Government / Institution</div>
+        <div class="aw-desc">Competitive merit-based scholarship awarded during Masters study.</div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Award 5 -->
+      <!-- <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">📜</div>
+          <span class="aw-year">2023</span>
+        </div>
+        <div class="aw-title">Travel Grant</div>
+        <div class="aw-org">Conference Name</div>
+        <div class="aw-desc">Awarded to present research at an international conference.</div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Award 6 -->
+      <!-- <div class="aw">
+        <div class="aw-top">
+          <div class="aw-icon">🔭</div>
+          <span class="aw-year">2022</span>
+        </div>
+        <div class="aw-title">Research Excellence Award</div>
+        <div class="aw-org">Department / University</div>
+        <div class="aw-desc">Recognised for outstanding contributions to ongoing research projects.</div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ PUBLICATIONS ════ -->
+<section id="publications">
+  <div class="inner">
+    <div class="sec-header">
+      <div class="sec-eyebrow">Academic Output</div>
+      <h2 class="sec-title">Publications</h2>
+      <p class="sec-sub">Peer-reviewed papers, journal articles, and conference proceedings.</p>
+    </div>
+    <div class="pub-list">
+
+      <!-- ✏️ EDIT: Publication 1 — most recent first -->
+      <!-- <div class="pub">
+        <div>
+          <div class="pub-meta">
+            <span class="pub-year">2024</span>
+            <span class="pub-type">Conference</span>
+            <span class="pub-venue">Full Conference Name (ACRONYM)</span>
+          </div>
+          <div class="pub-title">Your Paper Title Goes Here: A Study of Something Important in Your Research Field</div>
+          <div class="pub-authors"><strong>Your Name</strong>, Co-Author One, Co-Author Two</div>
+        </div>
+        <div class="pub-links">
+          <a class="pub-link" href="#">PDF</a>
+          <a class="pub-link" href="#">arXiv</a>
+          <a class="pub-link" href="#">Code</a>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Publication 2 -->
+      <!-- <div class="pub">
+        <div>
+          <div class="pub-meta">
+            <span class="pub-year">2023</span>
+            <span class="pub-type">Journal</span>
+            <span class="pub-venue">Journal Name · Vol. X, Issue Y</span>
+          </div>
+          <div class="pub-title">Second Paper Title: Novel Contribution to [Research Area]</div>
+          <div class="pub-authors">Co-Author One, <strong>Your Name</strong>, Advisor Name</div>
+        </div>
+        <div class="pub-links">
+          <a class="pub-link" href="#">PDF</a>
+          <a class="pub-link" href="#">DOI</a>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Publication 3 -->
+      <!-- <div class="pub">
+        <div>
+          <div class="pub-meta">
+            <span class="pub-year">2022</span>
+            <span class="pub-type">Workshop</span>
+            <span class="pub-venue">Workshop / Symposium Name</span>
+          </div>
+          <div class="pub-title">Third Paper Title: Early Research Work on [Topic]</div>
+          <div class="pub-authors"><strong>Your Name</strong>, Advisor Name</div>
+        </div>
+        <div class="pub-links">
+          <a class="pub-link" href="#">PDF</a>
+          <a class="pub-link" href="#">Slides</a>
+        </div>
+      </div> -->
+
+      <!-- ✏️ EDIT: Publication 4 -->
+      <div class="pub">
+        <div>
+          <!-- <div class="pub-meta">
+            <span class="pub-year">2021</span>
+            <span class="pub-type">Journal</span>
+            <span class="pub-venue">Journal Name · Vol. X</span>
+          </div>
+          <div class="pub-title">Fourth Publication: An Investigation into [Topic or Method]</div>
+          <div class="pub-authors"><strong>Your Name</strong>, Co-Author One</div>
+        </div>
+        <div class="pub-links">
+          <a class="pub-link" href="#">PDF</a>
+          <a class="pub-link" href="#">DOI</a>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-top">
+      <div class="sec-eyebrow">Reach Out</div>
+      <h2 class="sec-title">Contact Me</h2>
+      <!-- ✏️ EDIT: Change this message -->
+      <!-- <p class="sec-sub">I am happy to discuss research, collaborations, or any questions. Reach me through any of the channels below or fill the form.</p> -->
+    </div>
+
+    <!-- ✏️ EDIT: Replace all links and values with your real info -->
+    <div class="contact-grid">
+      <a class="cc" href="mailto:you@university.edu">
+        <div class="cc-icon">✉️</div>
+        <div class="cc-label">Email</div>
+        <div class="cc-val">pradhanrakesh985@gmail.com</div>
+      </a>
+      <a class="cc" href="https://github.com/yourusername" target="_blank">
+        <div class="cc-icon">💻</div>
+        <div class="cc-label">GitHub</div>
+        <div class="cc-val">@yourusername</div>
+      </a>
+      <a class="cc" href="https://linkedin.com/in/yourprofile" target="_blank">
+        <div class="cc-icon">🔗</div>
+        <div class="cc-label">LinkedIn</div>
+        <div class="cc-val">in/yourprofile</div>
+      </a>
+      <a class="cc" href="https://scholar.google.com" target="_blank">
+        <div class="cc-icon">📖</div>
+        <div class="cc-label">Google Scholar</div>
+        <div class="cc-val">View Profile</div>
+      </a>
+      <a class="cc" href="https://researchgate.net" target="_blank">
+        <div class="cc-icon">🔎</div>
+        <div class="cc-label">ResearchGate</div>
+        <div class="cc-val">View Profile</div>
+      </a>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form">
+      <div class="form-title">Send a Message</div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full Name"/>
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-field">
+          <label>Subject</label>
+          <input type="text" placeholder="Research Collaboration / Question"/>
+        </div>
+        <div class="form-field">
+          <label>Institution</label>
+          <input type="text" placeholder="Your University / Organisation"/>
+        </div>
+        <div class="form-field form-full">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Write your message here..."></textarea>
+        </div>
+      </div>
+      <!-- ✏️ NOTE: To make this form work, connect it to Formspree.io (free) — replace action="#" -->
+      <button class="form-btn">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <!-- ✏️ EDIT: Your name -->
+  © 2024 <span>Your Name</span> · Built with GitHub Pages · All rights reserved
+</footer>
+
+<script>
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  links.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
